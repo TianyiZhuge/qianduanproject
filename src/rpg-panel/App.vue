@@ -144,10 +144,14 @@ const currentPageComponent = computed(() => {
 .rpg-app {
   position: relative;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0;
   gap: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* ============================================
@@ -401,6 +405,8 @@ const currentPageComponent = computed(() => {
   position: relative;
   z-index: var(--z-base);
   padding: 16px;
+  flex: 1;
+  min-height: 0;
 }
 
 /* ============================================

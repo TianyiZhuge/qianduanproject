@@ -15,10 +15,22 @@
   background: var(--gradient-dark);
   width: 100%;
   max-width: 100%;
+  min-height: 100%;
   margin: 0 auto;
   border-radius: var(--border-radius-lg);
   /* 添加几何纹理背景 */
   background-image: var(--pattern-diamond), var(--pattern-lines), var(--gradient-dark);
+}
+
+/* === body 样式 (iframe 兼容) === */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-ink-black);
 }
 
 /* === 玻璃卡片基础类 - 暗喻幻想风格 === */
