@@ -123,10 +123,13 @@ const currentPageComponent = computed(() => {
 <style scoped>
 .rpg-app {
   position: relative;
+  width: 100%;
+  min-width: 800px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /* === 背景装饰 === */
