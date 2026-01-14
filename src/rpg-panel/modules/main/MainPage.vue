@@ -171,9 +171,10 @@ function openBattleModal() {
 <style scoped>
 .main-page {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 16px;
-  height: calc(100vh - 140px);
+  grid-template-columns: 1fr 280px;
+  gap: 12px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 /* === 聊天区域 === */
@@ -218,7 +219,7 @@ function openBattleModal() {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  padding: 40px 20px;
   text-align: center;
   color: var(--color-text-muted);
 }

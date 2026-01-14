@@ -230,8 +230,8 @@ function retreat() {
 .battle-view {
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 16px;
+  width: 100%;
 }
 
 /* === 战场区域 === */

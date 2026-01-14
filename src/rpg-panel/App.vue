@@ -124,17 +124,15 @@ const currentPageComponent = computed(() => {
 .rpg-app {
   position: relative;
   width: 100%;
-  min-width: 800px;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  overflow-y: hidden;
+  padding: 12px;
+  gap: 12px;
 }
 
-/* === 背景装饰 === */
+/* === 背景装饰 (相对定位适配 iframe) === */
 .bg-decoration {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -142,70 +140,51 @@ const currentPageComponent = computed(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  border-radius: var(--border-radius-lg);
 }
 
 .bg-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
+  filter: blur(60px);
+  opacity: 0.25;
 }
 
 .bg-orb--1 {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   background: var(--color-accent-primary);
-  top: -100px;
-  right: -100px;
-  animation: float 20s ease-in-out infinite;
+  top: -50px;
+  right: -50px;
 }
 
 .bg-orb--2 {
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   background: var(--color-accent-secondary);
-  bottom: -50px;
-  left: -50px;
-  animation: float 25s ease-in-out infinite reverse;
+  bottom: -30px;
+  left: -30px;
 }
 
 .bg-orb--3 {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background: var(--color-accent-tertiary);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 10s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-20px, 20px);
-  }
-  50% {
-    transform: translate(20px, -20px);
-  }
-  75% {
-    transform: translate(-10px, -10px);
-  }
 }
 
 /* === 顶部导航 === */
 .top-nav {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: var(--z-dropdown);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
-  margin: 16px;
-  margin-bottom: 0;
+  padding: 10px 16px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .nav-brand {
@@ -243,16 +222,17 @@ const currentPageComponent = computed(() => {
 /* === 导航标签 === */
 .nav-tabs {
   display: flex;
-  gap: 4px;
+  gap: 2px;
+  flex-wrap: wrap;
 }
 
 .nav-tab {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 6px;
+  padding: 8px 12px;
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-text-secondary);
   background: transparent;
@@ -314,8 +294,6 @@ const currentPageComponent = computed(() => {
 
 /* === 主内容区域 === */
 .main-content {
-  flex: 1;
-  padding: 16px;
   position: relative;
   z-index: var(--z-base);
 }

@@ -45,8 +45,9 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  height: calc(100vh - 140px);
+  gap: 12px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .page-header {

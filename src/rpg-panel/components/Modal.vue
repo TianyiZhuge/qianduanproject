@@ -72,7 +72,7 @@ onUnmounted(() => {
 .modal-container {
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
+  max-height: 90%;
   animation: scaleIn var(--transition-normal) ease;
 }
 
@@ -93,9 +93,9 @@ onUnmounted(() => {
   max-width: 960px;
 }
 .modal-container--full {
-  width: 100%;
-  max-width: calc(100vw - 48px);
-  height: calc(100vh - 48px);
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  max-height: none;
 }
 
 .modal-header {
