@@ -6,19 +6,15 @@
         <h2 v-if="config.title" class="modal-title title title--md">{{ config.title }}</h2>
         <button v-if="config.closable" class="modal-close" @click="modalStore.close" title="关闭">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
       </header>
 
       <!-- 模态框内容 -->
       <div class="modal-body">
-        <component
-          v-if="config.component"
-          :is="config.component"
-          v-bind="config.props || {}"
-        />
+        <component v-if="config.component" :is="config.component" v-bind="config.props || {}" />
         <slot v-else />
       </div>
     </div>
@@ -80,11 +76,27 @@ onUnmounted(() => {
   animation: scaleIn var(--transition-normal) ease;
 }
 
-.modal-container--sm { width: 100%; max-width: 400px; }
-.modal-container--md { width: 100%; max-width: 560px; }
-.modal-container--lg { width: 100%; max-width: 720px; }
-.modal-container--xl { width: 100%; max-width: 960px; }
-.modal-container--full { width: 100%; max-width: calc(100vw - 48px); height: calc(100vh - 48px); }
+.modal-container--sm {
+  width: 100%;
+  max-width: 400px;
+}
+.modal-container--md {
+  width: 100%;
+  max-width: 560px;
+}
+.modal-container--lg {
+  width: 100%;
+  max-width: 720px;
+}
+.modal-container--xl {
+  width: 100%;
+  max-width: 960px;
+}
+.modal-container--full {
+  width: 100%;
+  max-width: calc(100vw - 48px);
+  height: calc(100vh - 48px);
+}
 
 .modal-header {
   display: flex;

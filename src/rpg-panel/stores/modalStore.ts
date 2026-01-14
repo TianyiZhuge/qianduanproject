@@ -21,7 +21,7 @@ export const useModalStore = defineStore('modal', () => {
     config.value = {
       size: 'md',
       closable: true,
-      ...modalConfig
+      ...modalConfig,
     };
     isOpen.value = true;
   }
@@ -38,6 +38,6 @@ export const useModalStore = defineStore('modal', () => {
     isOpen,
     config,
     open,
-    close
+    close,
   };
 });

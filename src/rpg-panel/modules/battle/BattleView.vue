@@ -84,16 +84,16 @@
       <div class="battle-actions">
         <button class="btn btn--ghost" @click="endTurn">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="13,17 18,12 13,7"/>
-            <polyline points="6,17 11,12 6,7"/>
+            <polyline points="13,17 18,12 13,7" />
+            <polyline points="6,17 11,12 6,7" />
           </svg>
           结束回合
         </button>
         <button class="btn btn--danger" @click="retreat">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-            <polyline points="16,17 21,12 16,7"/>
-            <line x1="21" y1="12" x2="9" y2="12"/>
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16,17 21,12 16,7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
           </svg>
           撤退
         </button>
@@ -130,13 +130,43 @@ const currentTurn = ref(1);
 const lastAction = ref('');
 
 const enemyUnits = ref<Unit[]>([
-  { id: 'e1', leader: '黑骑士', type: '重骑兵', count: 120, maxCount: 150, hp: 80, maxHp: 100, attack: 45, defense: 35 },
+  {
+    id: 'e1',
+    leader: '黑骑士',
+    type: '重骑兵',
+    count: 120,
+    maxCount: 150,
+    hp: 80,
+    maxHp: 100,
+    attack: 45,
+    defense: 35,
+  },
   { id: 'e2', leader: '暗法师', type: '法师', count: 80, maxCount: 100, hp: 60, maxHp: 100, attack: 55, defense: 15 },
-  { id: 'e3', leader: '兽人队长', type: '步兵', count: 200, maxCount: 200, hp: 100, maxHp: 100, attack: 35, defense: 25 },
+  {
+    id: 'e3',
+    leader: '兽人队长',
+    type: '步兵',
+    count: 200,
+    maxCount: 200,
+    hp: 100,
+    maxHp: 100,
+    attack: 35,
+    defense: 25,
+  },
 ]);
 
 const allyUnits = ref<Unit[]>([
-  { id: 'a1', leader: '艾琳娜', type: '圣骑士', count: 100, maxCount: 100, hp: 100, maxHp: 100, attack: 40, defense: 40 },
+  {
+    id: 'a1',
+    leader: '艾琳娜',
+    type: '圣骑士',
+    count: 100,
+    maxCount: 100,
+    hp: 100,
+    maxHp: 100,
+    attack: 40,
+    defense: 40,
+  },
   { id: 'a2', leader: '莱昂', type: '剑士', count: 150, maxCount: 150, hp: 90, maxHp: 100, attack: 50, defense: 30 },
   { id: 'a3', leader: '米娅', type: '弓箭手', count: 80, maxCount: 80, hp: 100, maxHp: 100, attack: 45, defense: 20 },
   { id: 'a4', leader: '索菲亚', type: '治疗师', count: 50, maxCount: 50, hp: 100, maxHp: 100, attack: 15, defense: 25 },
@@ -146,10 +176,28 @@ const activeUnit = ref<Unit | null>(allyUnits.value[0]);
 const selectedUnit = ref<Unit | null>(null);
 
 const skills: Skill[] = [
-  { id: 'attack', name: '普通攻击', icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>' },
-  { id: 'skill1', name: '技能一', icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>', cost: 2 },
-  { id: 'skill2', name: '技能二', icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', cost: 3 },
-  { id: 'defend', name: '防御', icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' },
+  {
+    id: 'attack',
+    name: '普通攻击',
+    icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  },
+  {
+    id: 'skill1',
+    name: '技能一',
+    icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>',
+    cost: 2,
+  },
+  {
+    id: 'skill2',
+    name: '技能二',
+    icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+    cost: 3,
+  },
+  {
+    id: 'defend',
+    name: '防御',
+    icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  },
 ];
 
 function selectUnit(unit: Unit) {

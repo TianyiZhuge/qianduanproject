@@ -4,7 +4,7 @@
       'unit-card',
       { 'unit-card--active': isActive },
       { 'unit-card--enemy': isEnemy },
-      { 'unit-card--ally': !isEnemy }
+      { 'unit-card--ally': !isEnemy },
     ]"
     @click="$emit('click')"
   >
@@ -35,10 +35,10 @@
       <!-- 部队数量 -->
       <div class="unit-count">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
         <span>{{ unit.count }}/{{ unit.maxCount }}</span>
       </div>
@@ -53,13 +53,15 @@
       <div class="stats-row">
         <div class="stat">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+            />
           </svg>
           {{ unit.attack }}
         </div>
         <div class="stat">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
           {{ unit.defense }}
         </div>
@@ -147,21 +149,19 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    var(--color-accent-primary),
-    transparent,
-    transparent
-  );
+  background: conic-gradient(from 0deg, transparent, var(--color-accent-primary), transparent, transparent);
   animation: rotate 3s linear infinite;
   opacity: 0.3;
   z-index: 0;
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* === 立绘区域 === */

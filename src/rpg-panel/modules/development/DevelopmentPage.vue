@@ -9,9 +9,9 @@
       <div class="placeholder-card glass-panel">
         <div class="placeholder-icon">
           <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 20V10"/>
-            <path d="M18 20V4"/>
-            <path d="M6 20v-4"/>
+            <path d="M12 20V10" />
+            <path d="M18 20V4" />
+            <path d="M6 20v-4" />
           </svg>
         </div>
         <h3 class="placeholder-title">发展模块</h3>
@@ -39,8 +39,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .page-container {

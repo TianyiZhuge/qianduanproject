@@ -5,15 +5,15 @@
       <header class="section-header">
         <h3 class="title title--md">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
           交互终端
         </h3>
         <div class="header-actions">
           <button class="btn btn--ghost btn--sm" title="清空对话">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="3,6 5,6 21,6"/>
-              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              <polyline points="3,6 5,6 21,6" />
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
             </svg>
           </button>
         </div>
@@ -24,9 +24,9 @@
         <div class="chat-placeholder">
           <div class="placeholder-icon">
             <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4"/>
-              <path d="M12 8h.01"/>
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
             </svg>
           </div>
           <p class="placeholder-text">等待交互内容加载...</p>
@@ -36,15 +36,11 @@
 
       <div class="chat-input-area">
         <div class="input-wrapper">
-          <textarea
-            class="chat-input input"
-            placeholder="输入指令或对话内容..."
-            rows="2"
-          ></textarea>
+          <textarea class="chat-input input" placeholder="输入指令或对话内容..." rows="2"></textarea>
           <button class="send-btn btn btn--primary">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22,2 15,22 11,13 2,9"/>
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22,2 15,22 11,13 2,9" />
             </svg>
             发送
           </button>
@@ -94,7 +90,9 @@
           <button class="action-btn" @click="openBattleModal">
             <span class="action-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
               </svg>
             </span>
             <span class="action-label">战斗</span>
@@ -102,9 +100,9 @@
           <button class="action-btn">
             <span class="action-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <line x1="3" y1="9" x2="21" y2="9"/>
-                <line x1="9" y1="21" x2="9" y2="9"/>
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="9" y1="21" x2="9" y2="9" />
               </svg>
             </span>
             <span class="action-label">地图</span>
@@ -112,8 +110,8 @@
           <button class="action-btn">
             <span class="action-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                <line x1="7" y1="7" x2="7.01" y2="7"/>
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                <line x1="7" y1="7" x2="7.01" y2="7" />
               </svg>
             </span>
             <span class="action-label">背包</span>
@@ -121,8 +119,8 @@
           <button class="action-btn">
             <span class="action-icon">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
               </svg>
             </span>
             <span class="action-label">日志</span>
@@ -165,7 +163,7 @@ function openBattleModal() {
   modalStore.open({
     title: '战斗界面',
     component: BattleView,
-    size: 'full'
+    size: 'full',
   });
 }
 </script>
@@ -397,10 +395,18 @@ function openBattleModal() {
   flex-shrink: 0;
 }
 
-.event-item--warning .event-dot { background: var(--color-warning); }
-.event-item--info .event-dot { background: var(--color-info); }
-.event-item--success .event-dot { background: var(--color-success); }
-.event-item--danger .event-dot { background: var(--color-danger); }
+.event-item--warning .event-dot {
+  background: var(--color-warning);
+}
+.event-item--info .event-dot {
+  background: var(--color-info);
+}
+.event-item--success .event-dot {
+  background: var(--color-success);
+}
+.event-item--danger .event-dot {
+  background: var(--color-danger);
+}
 
 .event-text {
   color: var(--color-text-secondary);
