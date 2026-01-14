@@ -6,7 +6,8 @@
 @import './theme.css';
 
 /* === HTML/Body 基础设置 (iframe 兼容) === */
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
