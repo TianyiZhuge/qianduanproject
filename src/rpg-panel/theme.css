@@ -1,68 +1,132 @@
 /* ============================================
-   RPG Panel - 日式异世界奇幻主题系统
-   风格参考：无职转生、overlord、re:zero、碧蓝幻想
+   RPG Panel - 暗喻幻想 (Metaphor: ReFantazio) 风格主题
+   风格特征：几何图案、古籍美学、塔罗牌元素、强烈对比
    ============================================ */
 
 :root {
-  /* === 主色调 - 深色奇幻风格 === */
-  --color-bg-primary: hsl(230, 25%, 8%);
-  --color-bg-secondary: hsl(230, 20%, 12%);
-  --color-bg-tertiary: hsl(230, 18%, 16%);
-  --color-bg-elevated: hsl(230, 22%, 14%);
+  /* === 核心配色 - 暗喻幻想风格 === */
+  --color-parchment: hsl(40, 35%, 88%);         /* 羊皮纸白 */
+  --color-parchment-dark: hsl(35, 25%, 75%);    /* 泛黄羊皮纸 */
+  --color-ink-black: hsl(220, 35%, 6%);         /* 墨水黑 - 主背景 */
+  --color-ink-dark: hsl(225, 30%, 10%);         /* 深墨色 */
+  --color-blood-red: hsl(355, 75%, 45%);        /* 血红 */
+  --color-blood-dark: hsl(350, 70%, 30%);       /* 暗血红 */
+  --color-royal-gold: hsl(42, 90%, 55%);        /* 皇室金 */
+  --color-royal-gold-light: hsl(45, 85%, 65%);  /* 亮金 */
+  --color-royal-gold-dark: hsl(38, 80%, 40%);   /* 暗金 */
+  --color-mystic-purple: hsl(280, 50%, 40%);    /* 神秘紫 */
+  --color-aged-bronze: hsl(30, 40%, 35%);       /* 古铜 */
+  --color-midnight-blue: hsl(220, 60%, 20%);    /* 午夜蓝 */
 
-  /* === 强调色 - 魔法紫金风格 === */
-  --color-accent-primary: hsl(265, 85%, 65%);
-  --color-accent-secondary: hsl(45, 90%, 55%);
-  --color-accent-tertiary: hsl(200, 80%, 55%);
+  /* === 背景色系 === */
+  --color-bg-primary: var(--color-ink-black);
+  --color-bg-secondary: var(--color-ink-dark);
+  --color-bg-tertiary: hsl(225, 28%, 14%);
+  --color-bg-elevated: hsl(220, 25%, 12%);
+  --color-bg-card: linear-gradient(180deg, hsl(225, 30%, 12%) 0%, hsl(220, 35%, 8%) 100%);
+
+  /* === 强调色映射 === */
+  --color-accent-primary: var(--color-royal-gold);
+  --color-accent-secondary: var(--color-blood-red);
+  --color-accent-tertiary: var(--color-mystic-purple);
 
   /* === 文字颜色 === */
-  --color-text-primary: hsl(220, 20%, 95%);
-  --color-text-secondary: hsl(220, 15%, 70%);
-  --color-text-muted: hsl(220, 10%, 50%);
-  --color-text-accent: var(--color-accent-secondary);
+  --color-text-primary: var(--color-parchment);
+  --color-text-secondary: hsl(35, 20%, 70%);
+  --color-text-muted: hsl(30, 15%, 50%);
+  --color-text-gold: var(--color-royal-gold);
+  --color-text-blood: var(--color-blood-red);
 
   /* === 状态颜色 === */
-  --color-success: hsl(145, 70%, 45%);
-  --color-warning: hsl(35, 90%, 55%);
-  --color-danger: hsl(0, 75%, 55%);
-  --color-info: hsl(200, 80%, 55%);
+  --color-success: hsl(145, 60%, 40%);
+  --color-warning: hsl(35, 85%, 50%);
+  --color-danger: var(--color-blood-red);
+  --color-info: hsl(200, 70%, 50%);
 
-  /* === 渐变 === */
-  --gradient-primary: linear-gradient(135deg, hsl(265, 85%, 55%) 0%, hsl(280, 70%, 45%) 100%);
-  --gradient-gold: linear-gradient(135deg, hsl(45, 90%, 55%) 0%, hsl(35, 85%, 45%) 100%);
-  --gradient-dark: linear-gradient(180deg, hsl(230, 25%, 12%) 0%, hsl(230, 25%, 6%) 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  /* === 装饰性渐变 === */
+  --gradient-gold: linear-gradient(135deg,
+    var(--color-royal-gold-light) 0%,
+    var(--color-royal-gold) 50%,
+    var(--color-royal-gold-dark) 100%);
+  --gradient-blood: linear-gradient(135deg,
+    hsl(355, 70%, 55%) 0%,
+    var(--color-blood-red) 50%,
+    var(--color-blood-dark) 100%);
+  --gradient-parchment: linear-gradient(180deg,
+    var(--color-parchment) 0%,
+    var(--color-parchment-dark) 100%);
+  --gradient-dark: linear-gradient(180deg,
+    var(--color-ink-dark) 0%,
+    var(--color-ink-black) 100%);
+  --gradient-mystic: linear-gradient(135deg,
+    var(--color-mystic-purple) 0%,
+    hsl(260, 45%, 25%) 100%);
 
-  /* === 玻璃拟态 === */
-  --glass-bg: rgba(20, 22, 35, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --glass-blur: blur(12px);
+  /* === 边框装饰渐变 === */
+  --gradient-border-gold: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-royal-gold) 20%,
+    var(--color-royal-gold-light) 50%,
+    var(--color-royal-gold) 80%,
+    transparent 100%);
+  --gradient-border-blood: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-blood-red) 30%,
+    var(--color-blood-red) 70%,
+    transparent 100%);
 
-  /* === 边框 === */
-  --border-subtle: 1px solid rgba(255, 255, 255, 0.06);
-  --border-accent: 1px solid var(--color-accent-primary);
-  --border-gold: 1px solid var(--color-accent-secondary);
-  --border-radius-sm: 6px;
-  --border-radius-md: 10px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 24px;
+  /* === 纹理相关 === */
+  --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 
-  /* === 阴影 === */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow-purple: 0 0 20px rgba(155, 89, 255, 0.3);
-  --shadow-glow-gold: 0 0 20px rgba(255, 193, 7, 0.3);
+  /* === 几何图案 === */
+  --pattern-diamond: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(200, 170, 100, 0.03) 10px,
+    rgba(200, 170, 100, 0.03) 11px
+  );
+  --pattern-lines: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 20px,
+    rgba(200, 170, 100, 0.02) 20px,
+    rgba(200, 170, 100, 0.02) 21px
+  );
+
+  /* === 边框系统 === */
+  --border-subtle: 1px solid rgba(200, 170, 100, 0.15);
+  --border-gold: 2px solid var(--color-royal-gold);
+  --border-gold-thin: 1px solid var(--color-royal-gold);
+  --border-blood: 2px solid var(--color-blood-red);
+  --border-ornate: 3px double var(--color-royal-gold);
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+
+  /* === 阴影系统 === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 20px rgba(200, 160, 60, 0.3);
+  --shadow-gold-strong: 0 0 30px rgba(200, 160, 60, 0.5);
+  --shadow-blood: 0 0 20px rgba(180, 50, 50, 0.3);
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-card:
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(200, 170, 100, 0.1);
 
   /* === 字体 === */
   --font-primary: 'Inter', 'Noto Sans SC', sans-serif;
-  --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+  --font-display: 'Cinzel', 'Noto Serif SC', serif;
+  --font-ornate: 'Cinzel Decorative', 'Noto Serif SC', serif;
 
-  /* === 动画 === */
+  /* === 动画时间 === */
   --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
-  --transition-slow: 0.4s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-dramatic: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* === 层级 === */
   --z-base: 1;
@@ -81,27 +145,33 @@
   padding: 0;
 }
 
-/* === 滚动条美化 === */
+/* === 滚动条 - 古籍风格 === */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: var(--color-ink-dark);
+  border-left: 1px solid rgba(200, 170, 100, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent-primary);
-  border-radius: 3px;
+  background: linear-gradient(180deg,
+    var(--color-royal-gold-dark) 0%,
+    var(--color-aged-bronze) 100%);
+  border-radius: 4px;
+  border: 1px solid var(--color-royal-gold);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(265, 85%, 70%);
+  background: linear-gradient(180deg,
+    var(--color-royal-gold) 0%,
+    var(--color-royal-gold-dark) 100%);
 }
 
-/* === 选中文字样式 === */
+/* === 选中文字 === */
 ::selection {
-  background: var(--color-accent-primary);
-  color: var(--color-text-primary);
+  background: var(--color-blood-red);
+  color: var(--color-parchment);
 }

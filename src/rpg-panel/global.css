@@ -1,8 +1,9 @@
 /* ============================================
    RPG Panel - 全局样式
+   暗喻幻想 (Metaphor: ReFantazio) 风格
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
 @import './theme.css';
 
 /* === 应用容器 (iframe 兼容) === */
@@ -16,24 +17,299 @@
   max-width: 100%;
   margin: 0 auto;
   border-radius: var(--border-radius-lg);
+  /* 添加几何纹理背景 */
+  background-image:
+    var(--pattern-diamond),
+    var(--pattern-lines),
+    var(--gradient-dark);
 }
 
-/* === 玻璃卡片基础类 === */
+/* === 玻璃卡片基础类 - 暗喻幻想风格 === */
 .glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--color-bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: var(--border-subtle);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--glass-shadow);
+  box-shadow: var(--shadow-card);
+  position: relative;
 }
 
 .glass-panel--elevated {
-  background: rgba(30, 33, 50, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, hsl(225, 30%, 14%) 0%, hsl(220, 35%, 10%) 100%);
+  border: 1px solid rgba(200, 170, 100, 0.2);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
 }
 
-/* === 按钮基础样式 === */
+/* ============================================
+   装饰框架系统 - 古籍/塔罗风格
+   ============================================ */
+
+/* === 手稿风格边框 === */
+.frame-manuscript {
+  position: relative;
+  border: 2px solid var(--color-royal-gold-dark);
+  background: linear-gradient(180deg,
+    hsl(225, 28%, 12%) 0%,
+    hsl(220, 32%, 8%) 100%);
+}
+
+.frame-manuscript::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(200, 170, 100, 0.3);
+  pointer-events: none;
+}
+
+.frame-manuscript::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(200, 170, 100, 0.15);
+  pointer-events: none;
+}
+
+/* === 塔罗牌风格边框 === */
+.frame-tarot {
+  position: relative;
+  border: 3px solid var(--color-royal-gold);
+  background: linear-gradient(180deg,
+    hsl(220, 30%, 10%) 0%,
+    hsl(225, 35%, 6%) 100%);
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    var(--shadow-gold);
+}
+
+.frame-tarot::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 2px solid var(--color-royal-gold-dark);
+  pointer-events: none;
+}
+
+.frame-tarot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(45deg, var(--color-royal-gold) 0%, transparent 3%, transparent 97%, var(--color-royal-gold) 100%),
+    linear-gradient(-45deg, var(--color-royal-gold) 0%, transparent 3%, transparent 97%, var(--color-royal-gold) 100%);
+  pointer-events: none;
+}
+
+/* === 角落花饰装饰 === */
+.corner-flourish {
+  position: relative;
+}
+
+.corner-flourish::before,
+.corner-flourish::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-royal-gold);
+  pointer-events: none;
+}
+
+.corner-flourish::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-flourish::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* 内部角落（需要额外元素或使用子元素） */
+.corner-flourish-inner::before,
+.corner-flourish-inner::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-royal-gold);
+  pointer-events: none;
+}
+
+.corner-flourish-inner::before {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-flourish-inner::after {
+  bottom: -2px;
+  left: -2px;
+  border-right: none;
+  border-top: none;
+}
+
+/* ============================================
+   纹理背景系统
+   ============================================ */
+
+/* === 羊皮纸纹理 === */
+.bg-parchment {
+  background:
+    var(--texture-noise),
+    linear-gradient(180deg,
+      var(--color-parchment) 0%,
+      var(--color-parchment-dark) 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--color-ink-black);
+}
+
+/* === 泛黄纸张 === */
+.bg-aged-paper {
+  background:
+    linear-gradient(135deg,
+      rgba(200, 170, 100, 0.08) 0%,
+      transparent 50%,
+      rgba(200, 170, 100, 0.05) 100%),
+    var(--color-bg-secondary);
+}
+
+/* === 菱形图案背景 === */
+.bg-pattern-diamond {
+  background-image: var(--pattern-diamond);
+}
+
+/* === 深色墨水背景 === */
+.bg-ink {
+  background: var(--gradient-dark);
+}
+
+/* === 血红渐变背景 === */
+.bg-blood {
+  background: var(--gradient-blood);
+}
+
+/* === 神秘紫背景 === */
+.bg-mystic {
+  background: var(--gradient-mystic);
+}
+
+/* ============================================
+   几何装饰元素
+   ============================================ */
+
+/* === 菱形分隔符 === */
+.geo-diamond {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.geo-diamond::before,
+.geo-diamond::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gradient-border-gold);
+}
+
+.geo-diamond-icon {
+  width: 12px;
+  height: 12px;
+  background: var(--color-royal-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(200, 160, 60, 0.5);
+}
+
+/* === 三角形装饰 === */
+.geo-triangle {
+  position: relative;
+  padding-top: 8px;
+}
+
+.geo-triangle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--color-royal-gold);
+}
+
+/* === 装饰性分隔线 === */
+.line-ornate {
+  position: relative;
+  height: 3px;
+  background: transparent;
+}
+
+.line-ornate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-border-gold);
+}
+
+.line-ornate::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--color-royal-gold);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 0 0 15px rgba(200, 160, 60, 0.6);
+}
+
+/* === 血红分隔线 === */
+.line-blood {
+  height: 2px;
+  background: var(--gradient-border-blood);
+}
+
+/* === 标题装饰线 === */
+.title-decorated {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-decorated::before,
+.title-decorated::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-royal-gold-dark) 50%,
+    transparent 100%);
+}
+
+.title-decorated::before {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-royal-gold-dark) 100%);
+}
+
+.title-decorated::after {
+  background: linear-gradient(90deg,
+    var(--color-royal-gold-dark) 0%,
+    transparent 100%);
+}
+
+/* === 按钮基础样式 - 印章/蜡封风格 === */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -44,8 +320,8 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-primary);
-  background: var(--glass-bg);
-  border: var(--border-subtle);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(200, 170, 100, 0.3);
   border-radius: var(--border-radius-md);
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -61,7 +337,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 170, 100, 0.15), transparent);
   transition: left 0.5s ease;
 }
 
@@ -70,8 +346,8 @@
 }
 
 .btn:hover {
-  border-color: var(--color-accent-primary);
-  box-shadow: var(--shadow-glow-purple);
+  border-color: var(--color-royal-gold);
+  box-shadow: var(--shadow-gold);
   transform: translateY(-2px);
 }
 
@@ -80,63 +356,121 @@
 }
 
 .btn--primary {
-  background: var(--gradient-primary);
-  border: none;
+  background: var(--gradient-gold);
+  border: 2px solid var(--color-royal-gold);
+  color: var(--color-ink-black);
+  font-weight: 600;
 }
 
 .btn--primary:hover {
-  box-shadow: var(--shadow-glow-purple), var(--shadow-md);
+  box-shadow: var(--shadow-gold-strong), var(--shadow-md);
 }
 
 .btn--gold {
   background: var(--gradient-gold);
-  border: none;
-  color: hsl(230, 25%, 10%);
+  border: 2px solid var(--color-royal-gold-light);
+  color: var(--color-ink-black);
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn--gold:hover {
-  box-shadow: var(--shadow-glow-gold), var(--shadow-md);
+  box-shadow: var(--shadow-gold-strong), var(--shadow-md);
+}
+
+.btn--blood {
+  background: var(--gradient-blood);
+  border: 2px solid var(--color-blood-red);
+  color: var(--color-parchment);
+  font-weight: 600;
+}
+
+.btn--blood:hover {
+  box-shadow: var(--shadow-blood), var(--shadow-md);
 }
 
 .btn--ghost {
   background: transparent;
-  border: 1px solid var(--color-text-muted);
+  border: 1px solid rgba(200, 170, 100, 0.4);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--color-text-secondary);
+  background: rgba(200, 170, 100, 0.1);
+  border-color: var(--color-royal-gold);
 }
 
-/* === 输入框基础样式 === */
+/* === 印章按钮 (特殊样式) === */
+.btn--seal {
+  padding: 12px 24px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    var(--gradient-blood);
+  border: 3px solid var(--color-blood-dark);
+  border-radius: var(--border-radius-lg);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    var(--shadow-md);
+  color: var(--color-parchment);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn--seal:hover {
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    var(--shadow-blood),
+    var(--shadow-lg);
+}
+
+/* === 输入框基础样式 - 古籍风格 === */
 .input {
   width: 100%;
   padding: 12px 16px;
   font-family: var(--font-primary);
   font-size: 14px;
   color: var(--color-text-primary);
-  background: rgba(0, 0, 0, 0.3);
-  border: var(--border-subtle);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(200, 170, 100, 0.25);
   border-radius: var(--border-radius-md);
   outline: none;
   transition: all var(--transition-normal);
 }
 
 .input:focus {
-  border-color: var(--color-accent-primary);
-  box-shadow: 0 0 0 3px rgba(155, 89, 255, 0.15);
+  border-color: var(--color-royal-gold);
+  box-shadow: 0 0 0 3px rgba(200, 160, 60, 0.15), var(--shadow-gold);
 }
 
 .input::placeholder {
   color: var(--color-text-muted);
 }
 
-/* === 标题样式 === */
+/* === 羊皮纸风格输入框 === */
+.input--parchment {
+  background: linear-gradient(180deg,
+    rgba(200, 170, 100, 0.1) 0%,
+    rgba(180, 150, 80, 0.05) 100%);
+  border: 2px solid var(--color-royal-gold-dark);
+}
+
+.input--parchment:focus {
+  background: linear-gradient(180deg,
+    rgba(200, 170, 100, 0.15) 0%,
+    rgba(180, 150, 80, 0.08) 100%);
+}
+
+/* === 标题样式 - 华丽衬线字体 === */
 .title {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--color-text-primary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .title--xl {
@@ -160,51 +494,101 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
-/* === 分隔线 === */
+/* === 华丽标题 (带装饰) === */
+.title--ornate {
+  font-family: var(--font-ornate);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title--blood {
+  color: var(--color-blood-red);
+  text-shadow: 0 0 20px rgba(180, 50, 50, 0.5);
+}
+
+.title--gold {
+  color: var(--color-royal-gold);
+  text-shadow: 0 0 20px rgba(200, 160, 60, 0.5);
+}
+
+/* === 分隔线 - 金色渐变 === */
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: var(--gradient-border-gold);
   margin: 16px 0;
 }
 
-/* === 徽章 === */
+.divider--blood {
+  background: var(--gradient-border-blood);
+}
+
+/* === 徽章 - 纹章/盾牌风格 === */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
+  padding: 4px 12px;
   font-size: 12px;
-  font-weight: 500;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  border-radius: 4px;
+  background: rgba(200, 170, 100, 0.15);
+  border: 1px solid rgba(200, 170, 100, 0.3);
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
 }
 
 .badge--primary {
-  background: var(--color-accent-primary);
+  background: var(--gradient-gold);
+  border-color: var(--color-royal-gold);
+  color: var(--color-ink-black);
 }
 
 .badge--gold {
-  background: var(--color-accent-secondary);
-  color: hsl(230, 25%, 10%);
+  background: var(--gradient-gold);
+  border-color: var(--color-royal-gold-light);
+  color: var(--color-ink-black);
+  box-shadow: 0 0 10px rgba(200, 160, 60, 0.3);
+}
+
+.badge--blood {
+  background: var(--gradient-blood);
+  border-color: var(--color-blood-red);
+  color: var(--color-parchment);
 }
 
 .badge--success {
-  background: var(--color-success);
+  background: linear-gradient(135deg, hsl(145, 55%, 35%) 0%, hsl(145, 60%, 25%) 100%);
+  border-color: var(--color-success);
+  color: var(--color-parchment);
 }
 
 .badge--danger {
-  background: var(--color-danger);
+  background: var(--gradient-blood);
+  border-color: var(--color-blood-dark);
+  color: var(--color-parchment);
 }
 
-/* === 动画关键帧 === */
+/* === 盾牌徽章 (六边形) === */
+.badge--shield {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  padding: 8px 16px;
+  background: var(--gradient-gold);
+  border: none;
+  color: var(--color-ink-black);
+  font-weight: 700;
+}
+
+/* ============================================
+   动画系统 - 暗喻幻想风格
+   ============================================ */
+
+/* === 基础动画 === */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
@@ -240,17 +624,34 @@
   }
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
+/* === 翻页效果 === */
+@keyframes pageFlip {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+    transform-origin: left center;
   }
-  50% {
-    opacity: 0.6;
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+    transform-origin: left center;
   }
 }
 
-@keyframes shimmer {
+/* === 墨水扩散 === */
+@keyframes inkSpread {
+  from {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  to {
+    clip-path: circle(100% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+/* === 金色微光流动 === */
+@keyframes goldShimmer {
   0% {
     background-position: -200% 0;
   }
@@ -259,17 +660,91 @@
   }
 }
 
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: var(--shadow-glow-purple);
+/* === 神秘漂浮 === */
+@keyframes floatMystic {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
   }
-  50% {
-    box-shadow: 0 0 30px rgba(155, 89, 255, 0.5);
+  25% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-1deg);
   }
 }
 
-/* === 工具类 === */
+/* === 金色光晕脉冲 === */
+@keyframes glowGold {
+  0%, 100% {
+    box-shadow: var(--shadow-gold);
+  }
+  50% {
+    box-shadow: var(--shadow-gold-strong);
+  }
+}
+
+/* === 血红光晕脉冲 === */
+@keyframes glowBlood {
+  0%, 100% {
+    box-shadow: var(--shadow-blood);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(180, 50, 50, 0.6);
+  }
+}
+
+/* === 边框流光 === */
+@keyframes borderFlow {
+  0% {
+    border-color: var(--color-royal-gold-dark);
+  }
+  50% {
+    border-color: var(--color-royal-gold-light);
+  }
+  100% {
+    border-color: var(--color-royal-gold-dark);
+  }
+}
+
+/* === 印章盖章效果 === */
+@keyframes stampPress {
+  0% {
+    transform: scale(1.5) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.95) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* === 古老脉冲 === */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* === 呼吸灯效果 === */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* === 动画工具类 === */
 .animate-fadeIn {
   animation: fadeIn var(--transition-normal) ease forwards;
 }
@@ -282,13 +757,56 @@
 .animate-scaleIn {
   animation: scaleIn var(--transition-normal) ease forwards;
 }
+.animate-pageFlip {
+  animation: pageFlip var(--transition-dramatic) ease forwards;
+}
+.animate-inkSpread {
+  animation: inkSpread var(--transition-slow) ease forwards;
+}
 .animate-pulse {
   animation: pulse 2s ease-in-out infinite;
 }
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+.animate-glowGold {
+  animation: glowGold 2s ease-in-out infinite;
+}
+.animate-glowBlood {
+  animation: glowBlood 2s ease-in-out infinite;
+}
+.animate-floatMystic {
+  animation: floatMystic 4s ease-in-out infinite;
+}
+.animate-borderFlow {
+  animation: borderFlow 3s ease-in-out infinite;
+}
+.animate-stampPress {
+  animation: stampPress 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+/* === 悬停动画效果 === */
+.hover-glow-gold:hover {
+  box-shadow: var(--shadow-gold-strong);
+  transition: box-shadow var(--transition-normal);
+}
+
+.hover-glow-blood:hover {
+  box-shadow: var(--shadow-blood);
+  transition: box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+  transition: transform var(--transition-normal);
+}
+
+/* === 文字工具类 === */
 .text-center {
   text-align: center;
 }
@@ -298,7 +816,20 @@
 .text-right {
   text-align: right;
 }
+.text-gold {
+  color: var(--color-royal-gold);
+}
+.text-blood {
+  color: var(--color-blood-red);
+}
+.text-parchment {
+  color: var(--color-parchment);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
 
+/* === 布局工具类 === */
 .flex {
   display: flex;
 }
@@ -322,4 +853,54 @@
 }
 .gap-lg {
   gap: 24px;
+}
+
+/* === 进度条 - 古典风格 === */
+.progress-bar {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(200, 170, 100, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--gradient-gold);
+  border-radius: 3px;
+  transition: width var(--transition-normal);
+  box-shadow: 0 0 10px rgba(200, 160, 60, 0.5);
+}
+
+.progress-bar__fill--blood {
+  background: var(--gradient-blood);
+  box-shadow: 0 0 10px rgba(180, 50, 50, 0.5);
+}
+
+.progress-bar__fill--success {
+  background: linear-gradient(90deg, hsl(145, 55%, 30%) 0%, hsl(145, 60%, 40%) 100%);
+  box-shadow: 0 0 10px rgba(60, 150, 80, 0.5);
+}
+
+/* === 卡片悬停效果 === */
+.card-interactive {
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  border-color: var(--color-royal-gold);
+}
+
+/* === 选中状态 === */
+.is-selected {
+  border-color: var(--color-royal-gold) !important;
+  box-shadow: var(--shadow-gold-strong) !important;
+}
+
+.is-active {
+  border-color: var(--color-blood-red) !important;
+  box-shadow: var(--shadow-blood) !important;
 }

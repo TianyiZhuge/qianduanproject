@@ -1,21 +1,37 @@
 <template>
   <div class="rpg-app">
-    <!-- 背景装饰 -->
-    <div class="bg-decoration">
-      <div class="bg-orb bg-orb--1"></div>
-      <div class="bg-orb bg-orb--2"></div>
-      <div class="bg-orb bg-orb--3"></div>
+    <!-- 顶部三角形装饰带 -->
+    <div class="top-decoration">
+      <div class="decoration-line"></div>
+      <div class="decoration-triangles">
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="diamond"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+        <span class="triangle"></span>
+      </div>
     </div>
 
-    <!-- 顶部导航栏 -->
-    <header class="top-nav glass-panel">
+    <!-- 顶部导航栏 - 书脊风格 -->
+    <header class="top-nav">
+      <!-- 左侧装饰线 -->
+      <div class="nav-edge nav-edge--left"></div>
+
       <div class="nav-brand">
-        <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </svg>
+        <div class="brand-crest">
+          <div class="crest-outer"></div>
+          <div class="crest-inner">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
         </div>
-        <span class="brand-text">战略指挥部</span>
+        <div class="brand-title">
+          <span class="brand-text">战略指挥部</span>
+          <span class="brand-subtitle">STRATEGIC COMMAND</span>
+        </div>
       </div>
 
       <nav class="nav-tabs">
@@ -25,6 +41,7 @@
           :class="['nav-tab', { 'nav-tab--active': activeTab === tab.id }]"
           @click="activeTab = tab.id"
         >
+          <span class="nav-tab__bookmark"></span>
           <span class="nav-tab__icon" v-html="tab.icon"></span>
           <span class="nav-tab__label">{{ tab.label }}</span>
         </button>
@@ -40,6 +57,9 @@
           </svg>
         </button>
       </div>
+
+      <!-- 右侧装饰线 -->
+      <div class="nav-edge nav-edge--right"></div>
     </header>
 
     <!-- 主内容区域 -->
@@ -126,195 +146,284 @@ const currentPageComponent = computed(() => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 12px;
-  gap: 12px;
+  padding: 0;
+  gap: 0;
 }
 
-/* === 背景装饰 (相对定位适配 iframe) === */
-.bg-decoration {
+/* ============================================
+   顶部装饰带 - 三角形与菱形
+   ============================================ */
+.top-decoration {
+  position: relative;
+  padding: 8px 0;
+  background: linear-gradient(180deg,
+    rgba(200, 170, 100, 0.1) 0%,
+    transparent 100%);
+}
+
+.decoration-line {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  border-radius: var(--border-radius-lg);
+  height: 3px;
+  background: var(--gradient-border-gold);
 }
 
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.25;
+.decoration-triangles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
-.bg-orb--1 {
-  width: 200px;
-  height: 200px;
-  background: var(--color-accent-primary);
-  top: -50px;
-  right: -50px;
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--color-royal-gold);
+  opacity: 0.6;
 }
 
-.bg-orb--2 {
-  width: 150px;
-  height: 150px;
-  background: var(--color-accent-secondary);
-  bottom: -30px;
-  left: -30px;
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--color-royal-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(200, 160, 60, 0.5);
 }
 
-.bg-orb--3 {
-  width: 100px;
-  height: 100px;
-  background: var(--color-accent-tertiary);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* === 顶部导航 === */
+/* ============================================
+   导航栏 - 书脊风格
+   ============================================ */
 .top-nav {
   position: relative;
   z-index: var(--z-dropdown);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
+  padding: 12px 24px;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
+  background: linear-gradient(180deg,
+    hsl(225, 30%, 12%) 0%,
+    hsl(220, 35%, 8%) 100%);
+  border-bottom: 2px solid var(--color-royal-gold-dark);
+  box-shadow:
+    inset 0 1px 0 rgba(200, 170, 100, 0.15),
+    var(--shadow-md);
 }
 
+/* 左右装饰线 */
+.nav-edge {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: linear-gradient(180deg,
+    var(--color-royal-gold) 0%,
+    var(--color-royal-gold-dark) 50%,
+    var(--color-royal-gold) 100%);
+  border-radius: 2px;
+}
+
+.nav-edge--left {
+  left: 8px;
+}
+
+.nav-edge--right {
+  right: 8px;
+}
+
+/* ============================================
+   品牌标识 - 纹章风格
+   ============================================ */
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.brand-icon {
-  width: 36px;
-  height: 36px;
+.brand-crest {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.crest-outer {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation: glowGold 3s ease-in-out infinite;
+}
+
+.crest-inner {
+  position: absolute;
+  inset: 3px;
+  background: var(--color-ink-black);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-primary);
-  border-radius: var(--border-radius-md);
-  color: white;
+  color: var(--color-royal-gold);
 }
 
-.brand-icon svg {
+.crest-inner svg {
   width: 20px;
   height: 20px;
+}
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .brand-text {
   font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: 0.05em;
 }
 
-/* === 导航标签 === */
+.brand-subtitle {
+  font-family: var(--font-primary);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   导航标签 - 书签造型
+   ============================================ */
 .nav-tabs {
   display: flex;
-  gap: 2px;
+  gap: 4px;
   flex-wrap: wrap;
 }
 
 .nav-tab {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  gap: 8px;
+  padding: 10px 16px;
   font-family: var(--font-primary);
   font-size: 13px;
   font-weight: 500;
   color: var(--color-text-secondary);
-  background: transparent;
-  border: none;
-  border-radius: var(--border-radius-md);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(200, 170, 100, 0.2);
+  border-radius: 0;
   cursor: pointer;
   transition: all var(--transition-normal);
   position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
 }
 
-.nav-tab::after {
-  content: '';
+.nav-tab__bookmark {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  border-radius: 1px;
-  transform: translateX(-50%);
-  transition: width var(--transition-normal);
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--color-royal-gold-dark);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
 }
 
 .nav-tab:hover {
   color: var(--color-text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(200, 170, 100, 0.1);
+  border-color: rgba(200, 170, 100, 0.4);
+}
+
+.nav-tab:hover .nav-tab__bookmark {
+  opacity: 0.5;
 }
 
 .nav-tab--active {
   color: var(--color-text-primary);
-  background: rgba(155, 89, 255, 0.1);
+  background: rgba(200, 170, 100, 0.15);
+  border-color: var(--color-royal-gold);
+  box-shadow: 0 0 15px rgba(200, 160, 60, 0.2);
 }
 
-.nav-tab--active::after {
-  width: 60%;
+.nav-tab--active .nav-tab__bookmark {
+  opacity: 1;
+  background: var(--color-royal-gold);
+  box-shadow: 0 0 10px rgba(200, 160, 60, 0.5);
 }
 
 .nav-tab__icon {
   display: flex;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.7;
+  transition: all var(--transition-normal);
+}
+
+.nav-tab:hover .nav-tab__icon {
+  opacity: 1;
 }
 
 .nav-tab--active .nav-tab__icon {
   opacity: 1;
-  color: var(--color-accent-primary);
+  color: var(--color-royal-gold);
 }
 
-/* === 导航操作按钮 === */
+.nav-tab__label {
+  letter-spacing: 0.03em;
+}
+
+/* ============================================
+   导航操作按钮
+   ============================================ */
 .nav-actions {
   display: flex;
   gap: 8px;
 }
 
 .nav-action-btn {
-  padding: 8px;
-  border-radius: var(--border-radius-md);
+  padding: 10px;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%);
 }
 
-/* === 主内容区域 === */
+/* ============================================
+   主内容区域
+   ============================================ */
 .main-content {
   position: relative;
   z-index: var(--z-base);
+  padding: 16px;
 }
 
-/* === 页面切换动画 === */
-.page-enter-active,
+/* ============================================
+   页面切换动画 - 翻页效果
+   ============================================ */
+.page-enter-active {
+  animation: pageFlip 0.4s ease forwards;
+}
+
 .page-leave-active {
-  transition: all 0.3s ease;
+  animation: fadeOut 0.2s ease forwards;
 }
 
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(20px);
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-/* === 模态框动画 === */
+/* ============================================
+   模态框动画
+   ============================================ */
 .modal-enter-active,
 .modal-leave-active {
   transition: all 0.3s ease;
