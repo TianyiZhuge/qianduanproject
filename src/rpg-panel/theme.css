@@ -1,0 +1,105 @@
+/* ============================================
+   RPG Panel - 日式异世界奇幻主题系统
+   风格参考：无职转生、overlord、re:zero、碧蓝幻想
+   ============================================ */
+
+:root {
+  /* === 主色调 - 深色奇幻风格 === */
+  --color-bg-primary: hsl(230, 25%, 8%);
+  --color-bg-secondary: hsl(230, 20%, 12%);
+  --color-bg-tertiary: hsl(230, 18%, 16%);
+  --color-bg-elevated: hsl(230, 22%, 14%);
+
+  /* === 强调色 - 魔法紫金风格 === */
+  --color-accent-primary: hsl(265, 85%, 65%);
+  --color-accent-secondary: hsl(45, 90%, 55%);
+  --color-accent-tertiary: hsl(200, 80%, 55%);
+
+  /* === 文字颜色 === */
+  --color-text-primary: hsl(220, 20%, 95%);
+  --color-text-secondary: hsl(220, 15%, 70%);
+  --color-text-muted: hsl(220, 10%, 50%);
+  --color-text-accent: var(--color-accent-secondary);
+
+  /* === 状态颜色 === */
+  --color-success: hsl(145, 70%, 45%);
+  --color-warning: hsl(35, 90%, 55%);
+  --color-danger: hsl(0, 75%, 55%);
+  --color-info: hsl(200, 80%, 55%);
+
+  /* === 渐变 === */
+  --gradient-primary: linear-gradient(135deg, hsl(265, 85%, 55%) 0%, hsl(280, 70%, 45%) 100%);
+  --gradient-gold: linear-gradient(135deg, hsl(45, 90%, 55%) 0%, hsl(35, 85%, 45%) 100%);
+  --gradient-dark: linear-gradient(180deg, hsl(230, 25%, 12%) 0%, hsl(230, 25%, 6%) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+  /* === 玻璃拟态 === */
+  --glass-bg: rgba(20, 22, 35, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --glass-blur: blur(12px);
+
+  /* === 边框 === */
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.06);
+  --border-accent: 1px solid var(--color-accent-primary);
+  --border-gold: 1px solid var(--color-accent-secondary);
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* === 阴影 === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow-purple: 0 0 20px rgba(155, 89, 255, 0.3);
+  --shadow-glow-gold: 0 0 20px rgba(255, 193, 7, 0.3);
+
+  /* === 字体 === */
+  --font-primary: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+
+  /* === 动画 === */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* === 层级 === */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-modal: 1000;
+  --z-tooltip: 2000;
+  --z-notification: 3000;
+}
+
+/* === 基础重置 === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === 滚动条美化 === */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(265, 85%, 70%);
+}
+
+/* === 选中文字样式 === */
+::selection {
+  background: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
