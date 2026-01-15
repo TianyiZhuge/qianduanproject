@@ -199,9 +199,7 @@ function openBattleModal() {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: linear-gradient(180deg,
-    hsl(225, 28%, 10%) 0%,
-    hsl(220, 32%, 7%) 100%);
+  background: linear-gradient(180deg, hsl(225, 28%, 10%) 0%, hsl(220, 32%, 7%) 100%);
   border: 2px solid var(--color-royal-gold-dark);
   border-radius: var(--border-radius-lg);
   position: relative;
@@ -210,11 +208,13 @@ function openBattleModal() {
 /* 卷轴边缘装饰 */
 .scroll-edge {
   height: 16px;
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     var(--color-royal-gold-dark) 0%,
     var(--color-royal-gold) 20%,
     var(--color-royal-gold) 80%,
-    var(--color-royal-gold-dark) 100%);
+    var(--color-royal-gold-dark) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,10 +232,12 @@ function openBattleModal() {
 .scroll-rod {
   width: 60%;
   height: 4px;
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+    180deg,
     var(--color-parchment) 0%,
     var(--color-aged-bronze) 50%,
-    var(--color-royal-gold-dark) 100%);
+    var(--color-royal-gold-dark) 100%
+  );
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -245,9 +247,7 @@ function openBattleModal() {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(200, 170, 100, 0.03) 0%, transparent 50%),
-    var(--pattern-lines);
+  background: linear-gradient(135deg, rgba(200, 170, 100, 0.03) 0%, transparent 50%), var(--pattern-lines);
 }
 
 .section-header {
@@ -347,13 +347,8 @@ function openBattleModal() {
   position: relative;
   padding: 16px;
   background:
-    linear-gradient(135deg,
-      rgba(200, 170, 100, 0.08) 0%,
-      rgba(180, 150, 80, 0.03) 50%,
-      rgba(200, 170, 100, 0.06) 100%),
-    linear-gradient(180deg,
-      hsl(225, 28%, 12%) 0%,
-      hsl(220, 32%, 9%) 100%);
+    linear-gradient(135deg, rgba(200, 170, 100, 0.08) 0%, rgba(180, 150, 80, 0.03) 50%, rgba(200, 170, 100, 0.06) 100%),
+    linear-gradient(180deg, hsl(225, 28%, 12%) 0%, hsl(220, 32%, 9%) 100%);
   border: 2px solid var(--color-royal-gold-dark);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-card);
@@ -400,9 +395,7 @@ function openBattleModal() {
    ============================================ */
 .card-slate {
   padding: 16px;
-  background: linear-gradient(180deg,
-    hsl(220, 25%, 8%) 0%,
-    hsl(225, 30%, 5%) 100%);
+  background: linear-gradient(180deg, hsl(220, 25%, 8%) 0%, hsl(225, 30%, 5%) 100%);
   border: 2px solid rgba(100, 100, 120, 0.4);
   border-radius: var(--border-radius-md);
   box-shadow:
@@ -423,9 +416,7 @@ function openBattleModal() {
       rgba(200, 170, 100, 0.05) 24px,
       rgba(200, 170, 100, 0.05) 25px
     ),
-    linear-gradient(180deg,
-      hsl(225, 28%, 11%) 0%,
-      hsl(220, 32%, 8%) 100%);
+    linear-gradient(180deg, hsl(225, 28%, 11%) 0%, hsl(220, 32%, 8%) 100%);
   border: 1px solid rgba(200, 170, 100, 0.25);
   border-left: 3px solid var(--color-blood-red);
   border-radius: var(--border-radius-md);

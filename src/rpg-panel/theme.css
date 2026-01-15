@@ -5,18 +5,18 @@
 
 :root {
   /* === 核心配色 - 暗喻幻想风格 === */
-  --color-parchment: hsl(40, 35%, 88%);         /* 羊皮纸白 */
-  --color-parchment-dark: hsl(35, 25%, 75%);    /* 泛黄羊皮纸 */
-  --color-ink-black: hsl(220, 35%, 6%);         /* 墨水黑 - 主背景 */
-  --color-ink-dark: hsl(225, 30%, 10%);         /* 深墨色 */
-  --color-blood-red: hsl(355, 75%, 45%);        /* 血红 */
-  --color-blood-dark: hsl(350, 70%, 30%);       /* 暗血红 */
-  --color-royal-gold: hsl(42, 90%, 55%);        /* 皇室金 */
-  --color-royal-gold-light: hsl(45, 85%, 65%);  /* 亮金 */
-  --color-royal-gold-dark: hsl(38, 80%, 40%);   /* 暗金 */
-  --color-mystic-purple: hsl(280, 50%, 40%);    /* 神秘紫 */
-  --color-aged-bronze: hsl(30, 40%, 35%);       /* 古铜 */
-  --color-midnight-blue: hsl(220, 60%, 20%);    /* 午夜蓝 */
+  --color-parchment: hsl(40, 35%, 88%); /* 羊皮纸白 */
+  --color-parchment-dark: hsl(35, 25%, 75%); /* 泛黄羊皮纸 */
+  --color-ink-black: hsl(220, 35%, 6%); /* 墨水黑 - 主背景 */
+  --color-ink-dark: hsl(225, 30%, 10%); /* 深墨色 */
+  --color-blood-red: hsl(355, 75%, 45%); /* 血红 */
+  --color-blood-dark: hsl(350, 70%, 30%); /* 暗血红 */
+  --color-royal-gold: hsl(42, 90%, 55%); /* 皇室金 */
+  --color-royal-gold-light: hsl(45, 85%, 65%); /* 亮金 */
+  --color-royal-gold-dark: hsl(38, 80%, 40%); /* 暗金 */
+  --color-mystic-purple: hsl(280, 50%, 40%); /* 神秘紫 */
+  --color-aged-bronze: hsl(30, 40%, 35%); /* 古铜 */
+  --color-midnight-blue: hsl(220, 60%, 20%); /* 午夜蓝 */
 
   /* === 背景色系 === */
   --color-bg-primary: var(--color-ink-black);
@@ -44,36 +44,38 @@
   --color-info: hsl(200, 70%, 50%);
 
   /* === 装饰性渐变 === */
-  --gradient-gold: linear-gradient(135deg,
+  --gradient-gold: linear-gradient(
+    135deg,
     var(--color-royal-gold-light) 0%,
     var(--color-royal-gold) 50%,
-    var(--color-royal-gold-dark) 100%);
-  --gradient-blood: linear-gradient(135deg,
+    var(--color-royal-gold-dark) 100%
+  );
+  --gradient-blood: linear-gradient(
+    135deg,
     hsl(355, 70%, 55%) 0%,
     var(--color-blood-red) 50%,
-    var(--color-blood-dark) 100%);
-  --gradient-parchment: linear-gradient(180deg,
-    var(--color-parchment) 0%,
-    var(--color-parchment-dark) 100%);
-  --gradient-dark: linear-gradient(180deg,
-    var(--color-ink-dark) 0%,
-    var(--color-ink-black) 100%);
-  --gradient-mystic: linear-gradient(135deg,
-    var(--color-mystic-purple) 0%,
-    hsl(260, 45%, 25%) 100%);
+    var(--color-blood-dark) 100%
+  );
+  --gradient-parchment: linear-gradient(180deg, var(--color-parchment) 0%, var(--color-parchment-dark) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--color-ink-dark) 0%, var(--color-ink-black) 100%);
+  --gradient-mystic: linear-gradient(135deg, var(--color-mystic-purple) 0%, hsl(260, 45%, 25%) 100%);
 
   /* === 边框装饰渐变 === */
-  --gradient-border-gold: linear-gradient(90deg,
+  --gradient-border-gold: linear-gradient(
+    90deg,
     transparent 0%,
     var(--color-royal-gold) 20%,
     var(--color-royal-gold-light) 50%,
     var(--color-royal-gold) 80%,
-    transparent 100%);
-  --gradient-border-blood: linear-gradient(90deg,
+    transparent 100%
+  );
+  --gradient-border-blood: linear-gradient(
+    90deg,
     transparent 0%,
     var(--color-blood-red) 30%,
     var(--color-blood-red) 70%,
-    transparent 100%);
+    transparent 100%
+  );
 
   /* === 纹理相关 === */
   --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
@@ -113,9 +115,7 @@
   --shadow-gold-strong: 0 0 30px rgba(200, 160, 60, 0.5);
   --shadow-blood: 0 0 20px rgba(180, 50, 50, 0.3);
   --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-card:
-    0 4px 20px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(200, 170, 100, 0.1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(200, 170, 100, 0.1);
 
   /* === 字体 === */
   --font-primary: 'Inter', 'Noto Sans SC', sans-serif;
@@ -157,17 +157,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg,
-    var(--color-royal-gold-dark) 0%,
-    var(--color-aged-bronze) 100%);
+  background: linear-gradient(180deg, var(--color-royal-gold-dark) 0%, var(--color-aged-bronze) 100%);
   border-radius: 4px;
   border: 1px solid var(--color-royal-gold);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg,
-    var(--color-royal-gold) 0%,
-    var(--color-royal-gold-dark) 100%);
+  background: linear-gradient(180deg, var(--color-royal-gold) 0%, var(--color-royal-gold-dark) 100%);
 }
 
 /* === 选中文字 === */

@@ -156,9 +156,7 @@ const currentPageComponent = computed(() => {
 .top-decoration {
   position: relative;
   padding: 8px 0;
-  background: linear-gradient(180deg,
-    rgba(200, 170, 100, 0.1) 0%,
-    transparent 100%);
+  background: linear-gradient(180deg, rgba(200, 170, 100, 0.1) 0%, transparent 100%);
 }
 
 .decoration-line {
@@ -206,9 +204,7 @@ const currentPageComponent = computed(() => {
   padding: 12px 24px;
   flex-wrap: wrap;
   gap: 12px;
-  background: linear-gradient(180deg,
-    hsl(225, 30%, 12%) 0%,
-    hsl(220, 35%, 8%) 100%);
+  background: linear-gradient(180deg, hsl(225, 30%, 12%) 0%, hsl(220, 35%, 8%) 100%);
   border-bottom: 2px solid var(--color-royal-gold-dark);
   box-shadow:
     inset 0 1px 0 rgba(200, 170, 100, 0.15),
@@ -221,10 +217,12 @@ const currentPageComponent = computed(() => {
   top: 8px;
   bottom: 8px;
   width: 3px;
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+    180deg,
     var(--color-royal-gold) 0%,
     var(--color-royal-gold-dark) 50%,
-    var(--color-royal-gold) 100%);
+    var(--color-royal-gold) 100%
+  );
   border-radius: 2px;
 }
 
@@ -417,8 +415,12 @@ const currentPageComponent = computed(() => {
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* ============================================

@@ -18,10 +18,7 @@
   margin: 0 auto;
   border-radius: var(--border-radius-lg);
   /* 添加几何纹理背景 */
-  background-image:
-    var(--pattern-diamond),
-    var(--pattern-lines),
-    var(--gradient-dark);
+  background-image: var(--pattern-diamond), var(--pattern-lines), var(--gradient-dark);
 }
 
 /* === 玻璃卡片基础类 - 暗喻幻想风格 === */
@@ -49,9 +46,7 @@
 .frame-manuscript {
   position: relative;
   border: 2px solid var(--color-royal-gold-dark);
-  background: linear-gradient(180deg,
-    hsl(225, 28%, 12%) 0%,
-    hsl(220, 32%, 8%) 100%);
+  background: linear-gradient(180deg, hsl(225, 28%, 12%) 0%, hsl(220, 32%, 8%) 100%);
 }
 
 .frame-manuscript::before {
@@ -74,9 +69,7 @@
 .frame-tarot {
   position: relative;
   border: 3px solid var(--color-royal-gold);
-  background: linear-gradient(180deg,
-    hsl(220, 30%, 10%) 0%,
-    hsl(225, 35%, 6%) 100%);
+  background: linear-gradient(180deg, hsl(220, 30%, 10%) 0%, hsl(225, 35%, 6%) 100%);
   box-shadow:
     inset 0 0 20px rgba(0, 0, 0, 0.5),
     var(--shadow-gold);
@@ -161,10 +154,7 @@
 /* === 羊皮纸纹理 === */
 .bg-parchment {
   background:
-    var(--texture-noise),
-    linear-gradient(180deg,
-      var(--color-parchment) 0%,
-      var(--color-parchment-dark) 100%);
+    var(--texture-noise), linear-gradient(180deg, var(--color-parchment) 0%, var(--color-parchment-dark) 100%);
   background-blend-mode: overlay, normal;
   color: var(--color-ink-black);
 }
@@ -172,10 +162,7 @@
 /* === 泛黄纸张 === */
 .bg-aged-paper {
   background:
-    linear-gradient(135deg,
-      rgba(200, 170, 100, 0.08) 0%,
-      transparent 50%,
-      rgba(200, 170, 100, 0.05) 100%),
+    linear-gradient(135deg, rgba(200, 170, 100, 0.08) 0%, transparent 50%, rgba(200, 170, 100, 0.05) 100%),
     var(--color-bg-secondary);
 }
 
@@ -291,22 +278,15 @@
   content: '';
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--color-royal-gold-dark) 50%,
-    transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--color-royal-gold-dark) 50%, transparent 100%);
 }
 
 .title-decorated::before {
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--color-royal-gold-dark) 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--color-royal-gold-dark) 100%);
 }
 
 .title-decorated::after {
-  background: linear-gradient(90deg,
-    var(--color-royal-gold-dark) 0%,
-    transparent 100%);
+  background: linear-gradient(90deg, var(--color-royal-gold-dark) 0%, transparent 100%);
 }
 
 /* === 按钮基础样式 - 印章/蜡封风格 === */
@@ -402,9 +382,7 @@
 /* === 印章按钮 (特殊样式) === */
 .btn--seal {
   padding: 12px 24px;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    var(--gradient-blood);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), var(--gradient-blood);
   border: 3px solid var(--color-blood-dark);
   border-radius: var(--border-radius-lg);
   box-shadow:
@@ -443,7 +421,9 @@
 
 .input:focus {
   border-color: var(--color-royal-gold);
-  box-shadow: 0 0 0 3px rgba(200, 160, 60, 0.15), var(--shadow-gold);
+  box-shadow:
+    0 0 0 3px rgba(200, 160, 60, 0.15),
+    var(--shadow-gold);
 }
 
 .input::placeholder {
@@ -452,16 +432,12 @@
 
 /* === 羊皮纸风格输入框 === */
 .input--parchment {
-  background: linear-gradient(180deg,
-    rgba(200, 170, 100, 0.1) 0%,
-    rgba(180, 150, 80, 0.05) 100%);
+  background: linear-gradient(180deg, rgba(200, 170, 100, 0.1) 0%, rgba(180, 150, 80, 0.05) 100%);
   border: 2px solid var(--color-royal-gold-dark);
 }
 
 .input--parchment:focus {
-  background: linear-gradient(180deg,
-    rgba(200, 170, 100, 0.15) 0%,
-    rgba(180, 150, 80, 0.08) 100%);
+  background: linear-gradient(180deg, rgba(200, 170, 100, 0.15) 0%, rgba(180, 150, 80, 0.08) 100%);
 }
 
 /* === 标题样式 - 华丽衬线字体 === */
@@ -587,8 +563,12 @@
 
 /* === 基础动画 === */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -662,7 +642,8 @@
 
 /* === 神秘漂浮 === */
 @keyframes floatMystic {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   25% {
@@ -675,7 +656,8 @@
 
 /* === 金色光晕脉冲 === */
 @keyframes glowGold {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: var(--shadow-gold);
   }
   50% {
@@ -685,7 +667,8 @@
 
 /* === 血红光晕脉冲 === */
 @keyframes glowBlood {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: var(--shadow-blood);
   }
   50% {
@@ -724,7 +707,8 @@
 
 /* === 古老脉冲 === */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -734,7 +718,8 @@
 
 /* === 呼吸灯效果 === */
 @keyframes breathe {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.8;
   }

@@ -67,13 +67,15 @@
         <div class="stats-row">
           <div class="stat-badge stat-badge--attack">
             <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+              />
             </svg>
             <span>{{ unit.attack }}</span>
           </div>
           <div class="stat-badge stat-badge--defense">
             <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
             <span>{{ unit.defense }}</span>
           </div>
@@ -82,8 +84,8 @@
         <!-- 部队数量 -->
         <div class="unit-count">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
           </svg>
           <span>{{ unit.count }}/{{ unit.maxCount }}</span>
         </div>
@@ -126,9 +128,7 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
   position: relative;
   width: 150px;
   aspect-ratio: 2 / 3;
-  background: linear-gradient(180deg,
-    hsl(225, 30%, 10%) 0%,
-    hsl(220, 35%, 6%) 100%);
+  background: linear-gradient(180deg, hsl(225, 30%, 10%) 0%, hsl(220, 35%, 6%) 100%);
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
@@ -156,7 +156,8 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
 }
 
 @keyframes cardPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: var(--shadow-gold);
   }
   50% {
@@ -233,29 +234,53 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
   top: 10px;
   left: 10px;
 }
-.corner--tl::before { top: 0; left: 0; }
-.corner--tl::after { top: 0; left: 0; }
+.corner--tl::before {
+  top: 0;
+  left: 0;
+}
+.corner--tl::after {
+  top: 0;
+  left: 0;
+}
 
 .corner--tr {
   top: 10px;
   right: 10px;
 }
-.corner--tr::before { top: 0; right: 0; }
-.corner--tr::after { top: 0; right: 0; }
+.corner--tr::before {
+  top: 0;
+  right: 0;
+}
+.corner--tr::after {
+  top: 0;
+  right: 0;
+}
 
 .corner--bl {
   bottom: 10px;
   left: 10px;
 }
-.corner--bl::before { bottom: 0; left: 0; }
-.corner--bl::after { bottom: 0; left: 0; }
+.corner--bl::before {
+  bottom: 0;
+  left: 0;
+}
+.corner--bl::after {
+  bottom: 0;
+  left: 0;
+}
 
 .corner--br {
   bottom: 10px;
   right: 10px;
 }
-.corner--br::before { bottom: 0; right: 0; }
-.corner--br::after { bottom: 0; right: 0; }
+.corner--br::before {
+  bottom: 0;
+  right: 0;
+}
+.corner--br::after {
+  bottom: 0;
+  right: 0;
+}
 
 .unit-card--ally .corner::before,
 .unit-card--ally .corner::after {
@@ -335,15 +360,11 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
 }
 
 .unit-card--ally .portrait-placeholder {
-  background: linear-gradient(135deg,
-    hsl(145, 40%, 20%) 0%,
-    hsl(160, 35%, 15%) 100%);
+  background: linear-gradient(135deg, hsl(145, 40%, 20%) 0%, hsl(160, 35%, 15%) 100%);
 }
 
 .unit-card--enemy .portrait-placeholder {
-  background: linear-gradient(135deg,
-    hsl(355, 50%, 25%) 0%,
-    hsl(350, 45%, 18%) 100%);
+  background: linear-gradient(135deg, hsl(355, 50%, 25%) 0%, hsl(350, 45%, 18%) 100%);
 }
 
 /* 放射光线效果 */
@@ -354,12 +375,7 @@ const hpPercent = computed(() => (props.unit.hp / props.unit.maxHp) * 100);
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-  background:
-    repeating-conic-gradient(
-      from 0deg,
-      transparent 0deg 10deg,
-      rgba(200, 170, 100, 0.03) 10deg 20deg
-    );
+  background: repeating-conic-gradient(from 0deg, transparent 0deg 10deg, rgba(200, 170, 100, 0.03) 10deg 20deg);
   opacity: 0.5;
   z-index: -1;
 }
