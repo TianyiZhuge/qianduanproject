@@ -1,5 +1,6 @@
 # 酒馆助手前端界面或脚本编写
 
+<<<<<<< HEAD
 ## Skills
 Read and follow these skills before writing any code:
 - .claude/skills/base/SKILL.md
@@ -9,6 +10,8 @@ Read and follow these skills before writing any code:
 - .claude/skills/session-management/SKILL.md
 
 ## 项目专属规则
+=======
+>>>>>>> eec284c41778b4a6530c5c03db8fd44f91e6db6d
 @.cursor/rules/项目基本概念.mdc
 @.cursor/rules/mcp.mdc
 @.cursor/rules/酒馆变量.mdc
@@ -16,6 +19,7 @@ Read and follow these skills before writing any code:
 @.cursor/rules/脚本.mdc
 @.cursor/rules/mvu变量框架.mdc
 @.cursor/rules/mvu角色卡.mdc
+<<<<<<< HEAD
 
 ## Project Overview
 基于 tavern_helper_template 开发 SillyTavern 酒馆的前端界面和脚本。
@@ -84,3 +88,5 @@ $('body').load('https://testingcf.jsdelivr.net/gh/TianyiZhuge/qianduanproject/di
 - 不要手动修改 `dist/` 目录，CI 会自动覆盖
 - 在文件开头加 `// @no-ci` 可跳过 CI 打包
 - 在文件开头加 `// @obfuscate` 可混淆代码
+=======
+>>>>>>> eec284c41778b4a6530c5c03db8fd44f91e6db6d
